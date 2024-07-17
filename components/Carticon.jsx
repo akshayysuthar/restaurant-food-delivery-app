@@ -4,8 +4,8 @@ import React from "react";
 
 const Carticon = () => {
   return (
-    <Link href="/cart">
-      <div className="relative w-8 h-8">
+    <Link href="/cart" className="flex items-center gap-1">
+      <div className="relative md:w-5 md:h-5 w-8 h-8">
         <Image src="/cart.png" fill />
       </div>
       <span>Cart (3) </span>

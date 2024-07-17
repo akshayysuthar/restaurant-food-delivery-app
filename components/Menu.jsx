@@ -1,4 +1,8 @@
 "use client";
+
+// inprovement 
+// add transaction in menu
+
 import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
@@ -33,19 +37,27 @@ const Menu = () => {
           onClick={() => setOpen(false)}
         />
       )}
-      <div className="bg-red-500 text-white absolute w-full left-0 top-24 h-[calc(100vh-6rem)] flex items-center justify-center flex-col gap-8 text-xl z-10">
-        {links.map((item) => (
-          <Link href={item.url}>{item.title}</Link>
-        ))}
-      {!user ? (
-        <Link href="/login">Login</Link>
-      ) : (
-        <Link href="/login">Order</Link>
+      {open && (
+        <div className="bg-red-500 text-white absolute w-full left-0 top-24 h-[calc(100vh-6rem)] flex items-center justify-center flex-col gap-8 text-xl z-10">
+          {links.map((item) => (
+            <Link href={item.url} key={item.id} onClick={() => setOpen(false)}>
+              {item.title}
+            </Link>
+          ))}
+          {!user ? (
+            <Link href="/login" onClick={() => setOpen(false)}>
+              Login
+            </Link>
+          ) : (
+            <Link href="/login" onClick={() => setOpen(false)}>
+              Order
+            </Link>
+          )}
+          <Link href="/cart">
+            <Carticon />
+          </Link>
+        </div>
       )}
-      <Link href="/cart">
-        <Carticon />
-      </Link>
-      </div>
     </div>
   );
 };
