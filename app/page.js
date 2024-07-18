@@ -1,9 +1,15 @@
+"use client"
+import Slider from "@/components/Slider";
+import Featured from "@/components/Featured";
+import Offer from "@/components/Offer";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Home
-    </main>
+    <div>
+      <Slider />
+      <Featured />
+      <Offer />
+    </div>
   );
 }
